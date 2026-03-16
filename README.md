@@ -1,6 +1,6 @@
 # CryptoMarket
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.5.
+It's a cryptocurrency market simulation. A recruiting task to show programming skills.
 
 ## Development server
 

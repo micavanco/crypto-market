@@ -11,6 +11,7 @@
   --header-background-color: rgb(225, 225, 225);
   --chevron-color: rgb(1, 202, 232);
   --counter-background-color: rgb(193, 193, 193);
+  --snackbar-background-color: rgb(67, 90, 128);
 }
 
 /* Dark Theme */
@@ -25,4 +26,5 @@
   --header-background-color: rgb(65, 87, 110);
   --chevron-color: rgb(1, 202, 232);
   --counter-background-color: rgb(23, 24, 32);
+  --snackbar-background-color: rgb(67, 90, 128);
 }

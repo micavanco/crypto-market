@@ -32,14 +32,18 @@ export const AppStore = signalStore(
   ) => ({
     closeTransaction(symbol: string, transactionId: number): void {
       patchState(store, ({ orders }) => ({
-        orders: orders.map(order => {
+        orders: orders.reduce((newOrders, order) => {
           if (order.symbol === symbol) {
             order.transactions = order.transactions
               .filter(transaction => transaction.id !== transactionId);
           }
 
-          return order;
-        })
+          if (order.transactions && order.transactions.length > 0) {
+            newOrders.push(order);
+          }
+
+          return newOrders;
+        }, [] as Order[])
       }));
     },
     closeTransactionGroup(symbol: string): void {

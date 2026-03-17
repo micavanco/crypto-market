@@ -1,0 +1,65 @@
+table {
+  border-collapse: collapse;
+  color: var(--text-color);
+}
+
+thead {
+  background-color: var(--row-background-color--hover);
+
+  th {
+    padding: 5px;
+    text-align: left;
+  }
+
+  .table-header__symbol {
+    min-width: 120px;
+  }
+
+  .table-header__id {
+    min-width: 120px;
+  }
+
+  .table-header__side {
+    min-width: 70px;
+  }
+
+  .table-header__size {
+    min-width: 150px;
+  }
+
+  .table-header__time {
+    min-width: 150px;
+  }
+
+  .table-header__swap {
+    min-width: 120px;
+  }
+
+  .table-header__profit {
+    min-width: 120px;
+  }
+
+  .table-header__cancel {
+    min-width: 120px;
+  }
+}
+
+tbody {
+  background-color: var(--row-background-color);
+
+  td {
+    padding: 5px;
+  }
+
+  .table-row__header {
+    cursor: pointer;
+  }
+
+  .chevron {
+    color: var(--chevron-color);
+  }
+}
+
+tbody tr:hover {
+  background-color: var(--row-background-color--hover);
+}

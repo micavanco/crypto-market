@@ -1,1 +1,47 @@
-<p>orders-table works!</p>
+<table>
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col" class="table-header__symbol">Symbol</th>
+      <th scope="col" class="table-header__id">Order ID</th>
+      <th scope="col" class="table-header__side">Side</th>
+      <th scope="col" class="table-header__size">Size</th>
+      <th scope="col" class="table-header__time">Open Time</th>
+      <th scope="col" class="table-header__swap">Swap</th>
+      <th scope="col" class="table-header__profit">Profit</th>
+      <th scope="col" class="table-header__cancel"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (order of orders; track order.symbol) {
+      <tr class="table-row__header">
+        <td>
+          <span class="material-symbols-outlined chevron">
+            keyboard_arrow_up
+          </span>
+        </td>
+        <td>{{ order.symbol }}</td>
+        <td></td>
+        <td></td>
+        <td>{{ order.sizeTotal }}</td>
+        <td></td>
+        <td>{{ order.openPriceTotal }}</td>
+        <td>{{ order.swapTotal }}</td>
+        <td>{{ order.profitTotal }}</td>
+      </tr>
+      @for (transaction of order.transactions; track transaction.id) {
+        <tr>
+          <td scope="row"></td>
+          <td scope="row"></td>
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.side }}</td>
+          <td>{{ transaction.size }}</td>
+          <td>{{ transaction.openTime }}</td>
+          <td>{{ transaction.openPrice }}</td>
+          <td>{{ transaction.swap }}</td>
+          <td>{{ transaction.profit }}</td>
+        </tr>
+      }
+    }
+  </tbody>
+</table>

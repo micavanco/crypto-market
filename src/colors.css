@@ -9,6 +9,7 @@
   --profit-color: rgb(60, 193, 149);
   --loss-color: rgb(249, 76, 76);
   --header-background-color: rgb(225, 225, 225);
+  --chevron-color: rgb(1, 202, 232);
 }
 
 /* Dark Theme */
@@ -21,4 +22,5 @@
   --profit-color: rgb(60, 193, 149);
   --loss-color: rgb(249, 76, 76);
   --header-background-color: rgb(65, 87, 110);
+  --chevron-color: rgb(1, 202, 232);
 }

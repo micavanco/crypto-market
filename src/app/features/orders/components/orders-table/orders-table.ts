@@ -28,4 +28,12 @@ export class OrdersTable {
       return { ...orders };
     })
   }
+
+  protected closeTransaction(symbol: string, transactionId: number): void {
+    this.#appStore.closeTransaction(symbol, transactionId);
+  }
+
+  protected closeTransactionGroup(symbol: string): void {
+    this.#appStore.closeTransactionGroup(symbol);
+  }
 }

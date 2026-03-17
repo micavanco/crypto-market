@@ -35,7 +35,10 @@
         <td>{{ order.swapTotal }}</td>
         <td [appProfit]="order.profitTotal">{{ order.profitTotal }}</td>
         <td>
-          <span class="material-symbols-outlined close-group">
+          <span
+            class="material-symbols-outlined close-group"
+            (click)="closeTransactionGroup(order.symbol)"
+          >
             contract_delete
           </span>
         </td>
@@ -53,7 +56,10 @@
             <td>{{ transaction.swap }}</td>
             <td [appProfit]="transaction.profit">{{ transaction.profit }}</td>
             <td>
-            <span class="material-symbols-outlined close-transaction">
+            <span
+              class="material-symbols-outlined close-transaction"
+              (click)="closeTransaction(order.symbol, transaction.id)"
+            >
               close
             </span>
             </td>

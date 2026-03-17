@@ -30,6 +30,23 @@ export const AppStore = signalStore(
     store,
     apiService = inject(ApiService)
   ) => ({
+    closeTransaction(symbol: string, transactionId: number): void {
+      patchState(store, ({ orders }) => ({
+        orders: orders.map(order => {
+          if (order.symbol === symbol) {
+            order.transactions = order.transactions
+              .filter(transaction => transaction.id !== transactionId);
+          }
+
+          return order;
+        })
+      }));
+    },
+    closeTransactionGroup(symbol: string): void {
+      patchState(store, ({ orders }) => ({
+        orders: orders.filter(order => order.symbol !== symbol),
+      }));
+    },
     loadOrders: rxMethod<void>(
       pipe(
         tap(() => patchState(store, { isLoading: true })),

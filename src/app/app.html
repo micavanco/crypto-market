@@ -1,4 +1,4 @@
-<div>
-  <app-header></app-header>
+<div #appContainer>
+  <app-header [theme]="theme()" (themeChanged)="theme.set($event)"></app-header>
   <router-outlet></router-outlet>
 </div>

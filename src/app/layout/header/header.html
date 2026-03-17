@@ -1,1 +1,6 @@
-<p>header works!</p>
+<header>
+  <div>Crypto Market</div>
+  <span class="material-symbols-outlined theme-switcher" (click)="onThemeChanged()">
+    {{ `${theme()}_mode` }}
+  </span>
+</header>

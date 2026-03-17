@@ -2,19 +2,23 @@
 /* Light Theme */
 :root {
   --main-backgroud-color: rgb(233, 237, 241);
-  --font-color: rgb(14, 15, 26);
+  --text-color: rgb(14, 15, 26);
+  --text-header-color: rgb(31, 34, 58);
   --row-background-color: rgb(220, 225, 229);
   --row-background-color--hover: rgb(201, 209, 216);
   --profit-color: rgb(60, 193, 149);
   --loss-color: rgb(249, 76, 76);
+  --header-background-color: rgb(225, 225, 225);
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
   --main-backgroud-color: rgb(42, 56, 71);
-  --font-color: rgb(198, 210, 219);
+  --text-color: rgb(198, 210, 219);
+  --text-header-color: rgb(225, 225, 225);
   --row-background-color: rgba(14, 15, 26, .25);
   --row-background-color--hover: rgba(53, 71, 89, .5);
   --profit-color: rgb(60, 193, 149);
   --loss-color: rgb(249, 76, 76);
+  --header-background-color: rgb(65, 87, 110);
 }

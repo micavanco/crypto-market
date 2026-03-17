@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  height: 30px;
+  width: calc(100vw - 30px);
+  background: var(--header-background-color);
+  justify-content: space-between;
+  padding: 10px 15px;
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: 700;
+  -webkit-box-shadow: 0 9px 19px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0 9px 19px -8px rgba(66, 68, 90, 1);
+  box-shadow: 0 9px 19px -8px rgba(66, 68, 90, 1);
+}
+
+.theme-switcher {
+  color: var(--text-color);
+  cursor: pointer;
+}

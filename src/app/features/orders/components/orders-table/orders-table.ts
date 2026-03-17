@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { DatePipe } from '@angular/common';
+import { ProfitDirective } from '@shared/directives/profit.directive';
 
 @Component({
   selector: 'app-orders-table',
   imports: [
-    NgClass
+    DatePipe,
+    ProfitDirective
   ],
   templateUrl: './orders-table.html',
   styleUrl: './orders-table.css',

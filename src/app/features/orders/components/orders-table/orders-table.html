@@ -31,7 +31,7 @@
         <td></td>
         <td>{{ order.openPriceTotal }}</td>
         <td>{{ order.swapTotal }}</td>
-        <td>{{ order.profitTotal }}</td>
+        <td [appProfit]="order.profitTotal">{{ order.profitTotal }}</td>
         <td>
           <span class="material-symbols-outlined close-group">
             contract_delete
@@ -46,10 +46,10 @@
             <td>{{ transaction.id }}</td>
             <td>{{ transaction.side }}</td>
             <td>{{ transaction.size }}</td>
-            <td>{{ transaction.openTime }}</td>
+            <td>{{ transaction.openTime | date: 'dd.MM.yyyy HH:mm:ss' }}</td>
             <td>{{ transaction.openPrice }}</td>
             <td>{{ transaction.swap }}</td>
-            <td>{{ transaction.profit }}</td>
+            <td [appProfit]="transaction.profit">{{ transaction.profit }}</td>
             <td>
             <span class="material-symbols-outlined close-transaction">
               close

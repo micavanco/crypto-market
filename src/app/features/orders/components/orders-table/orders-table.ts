@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-orders-table',
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './orders-table.html',
   styleUrl: './orders-table.css',
 })
 export class OrdersTable {
+  protected openedOrders = signal({} as Record<string, boolean>);
   orders = [
     {
       symbol: "BTCUSD",
@@ -35,5 +39,13 @@ export class OrdersTable {
         },
       ]
     },
-  ]
+  ];
+
+  protected toggleOrders(symbol: string): void {
+    this.openedOrders.update(orders => {
+      orders[symbol] = !orders[symbol];
+
+      return { ...orders };
+    })
+  }
 }

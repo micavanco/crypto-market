@@ -7,6 +7,7 @@
       <th scope="col" class="table-header__side">Side</th>
       <th scope="col" class="table-header__size">Size</th>
       <th scope="col" class="table-header__time">Open Time</th>
+      <th scope="col" class="table-header__open-price">Open Price</th>
       <th scope="col" class="table-header__swap">Swap</th>
       <th scope="col" class="table-header__profit">Profit</th>
       <th scope="col" class="table-header__cancel"></th>
@@ -14,13 +15,16 @@
   </thead>
   <tbody>
     @for (order of orders; track order.symbol) {
-      <tr class="table-row__header">
+      <tr class="table-row__header" (click)="toggleOrders(order.symbol)">
         <td>
           <span class="material-symbols-outlined chevron">
-            keyboard_arrow_up
+            {{ openedOrders()[order.symbol] ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}
           </span>
         </td>
-        <td>{{ order.symbol }}</td>
+        <td>
+          <span>{{ order.symbol }}</span>
+          <span class="transaction-counter">{{ order.transactions.length }}</span>
+        </td>
         <td></td>
         <td></td>
         <td>{{ order.sizeTotal }}</td>
@@ -28,19 +32,31 @@
         <td>{{ order.openPriceTotal }}</td>
         <td>{{ order.swapTotal }}</td>
         <td>{{ order.profitTotal }}</td>
+        <td>
+          <span class="material-symbols-outlined close-group">
+            contract_delete
+          </span>
+        </td>
       </tr>
-      @for (transaction of order.transactions; track transaction.id) {
-        <tr>
-          <td scope="row"></td>
-          <td scope="row"></td>
-          <td>{{ transaction.id }}</td>
-          <td>{{ transaction.side }}</td>
-          <td>{{ transaction.size }}</td>
-          <td>{{ transaction.openTime }}</td>
-          <td>{{ transaction.openPrice }}</td>
-          <td>{{ transaction.swap }}</td>
-          <td>{{ transaction.profit }}</td>
-        </tr>
+      @if (openedOrders()[order.symbol]) {
+        @for (transaction of order.transactions; track transaction.id) {
+          <tr>
+            <td></td>
+            <td></td>
+            <td>{{ transaction.id }}</td>
+            <td>{{ transaction.side }}</td>
+            <td>{{ transaction.size }}</td>
+            <td>{{ transaction.openTime }}</td>
+            <td>{{ transaction.openPrice }}</td>
+            <td>{{ transaction.swap }}</td>
+            <td>{{ transaction.profit }}</td>
+            <td>
+            <span class="material-symbols-outlined close-transaction">
+              close
+            </span>
+            </td>
+          </tr>
+        }
       }
     }
   </tbody>

@@ -31,6 +31,10 @@ thead {
     min-width: 150px;
   }
 
+  .table-header__open-price {
+    min-width: 110px;
+  }
+
   .table-header__swap {
     min-width: 120px;
   }
@@ -40,7 +44,7 @@ thead {
   }
 
   .table-header__cancel {
-    min-width: 120px;
+    min-width: 50px;
   }
 }
 
@@ -55,8 +59,21 @@ tbody {
     cursor: pointer;
   }
 
-  .chevron {
+  .chevron, .close-transaction, .close-group {
     color: var(--chevron-color);
+    cursor: pointer;
+  }
+
+  .close-transaction {
+    font-size: 16px;
+  }
+
+  .transaction-counter {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: var(--transaction-counter-color);
+    font-size: 14px;
   }
 }
 

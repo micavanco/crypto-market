@@ -14,16 +14,18 @@
     </tr>
   </thead>
   <tbody>
-    @for (order of orders; track order.symbol) {
+    @for (order of orders(); track order.symbol) {
       <tr class="table-row__header" (click)="toggleOrders(order.symbol)">
         <td>
           <span class="material-symbols-outlined chevron">
             {{ openedOrders()[order.symbol] ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}
           </span>
         </td>
-        <td>
-          <span>{{ order.symbol }}</span>
-          <span class="transaction-counter">{{ order.transactions.length }}</span>
+        <td class="transaction-symbol-container">
+          <div class="transaction-symbol">{{ order.symbol }}</div>
+          <div class="transaction-counter-box">
+            <span class="transaction-counter">{{ order.transactions.length }}</span>
+          </div>
         </td>
         <td></td>
         <td></td>

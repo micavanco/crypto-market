@@ -1,4 +1,5 @@
 header {
+  position: fixed;
   display: flex;
   height: 30px;
   width: calc(100vw - 30px);
@@ -16,4 +17,5 @@ header {
 .theme-switcher {
   color: var(--text-color);
   cursor: pointer;
+  margin-right: 20px;
 }

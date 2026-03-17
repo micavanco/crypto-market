@@ -1,10 +1,10 @@
 .orders-container {
-  position: fixed;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   width: 100%;
-  justify-content: center;
+  min-height: 100vh;
+  justify-content: flex-start;
   align-items: center;
+  padding: 70px 0;
   background: var(--main-backgroud-color);
 }

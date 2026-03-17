@@ -68,8 +68,23 @@ tbody {
     font-size: 16px;
   }
 
+  .transaction-symbol-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .transaction-symbol {
+    width: 110px;
+  }
+
+  .transaction-counter-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+  }
+
   .transaction-counter {
-    margin-left: 10px;
     padding: 5px 10px;
     border-radius: 50%;
     background: var(--counter-background-color);

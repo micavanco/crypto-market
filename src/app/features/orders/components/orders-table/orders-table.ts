@@ -24,10 +24,6 @@ export class OrdersTable {
   protected orders = this.#appStore.orders;
   protected profitData = this.#appStore.profitData;
 
-  constructor() {
-    this.#appStore.loadData();
-  }
-
   protected toggleOrders(symbol: string): void {
     this.openedOrders.update(orders => {
       orders[symbol] = !orders[symbol];

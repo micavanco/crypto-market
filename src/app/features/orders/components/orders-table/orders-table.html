@@ -33,8 +33,7 @@
         <td></td>
         <td>{{ order.openPriceTotal | formatNumber: 2 }}</td>
         <td>{{ order.swapTotal | formatNumber: 4 }}</td>
-        @let totalProfit = profitData()[order.symbol].totalProfit;
-        <td [appProfit]="totalProfit">{{ totalProfit | formatNumber: 5 }}</td>
+        <td [appProfit]="profitData()[order.symbol].totalProfit">{{ profitData()[order.symbol].totalProfit | formatNumber: 5 }}</td>
         <td>
           <span
             class="material-symbols-outlined close-group"

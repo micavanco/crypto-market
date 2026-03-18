@@ -1,7 +1,8 @@
-import { Component, effect, ElementRef, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, effect, ElementRef, inject, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './layout/header/header';
 import { Theme } from '@core/types/theme.type';
+import { AppStore } from '@core/stores/app.store';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Theme } from '@core/types/theme.type';
   styleUrl: './app.css'
 })
 export class App implements OnInit {
+  #appStore = inject(AppStore);
 
   @ViewChild('appContainer', { static: true }) appContainer!: ElementRef;
 
@@ -23,6 +25,7 @@ export class App implements OnInit {
         this.appContainer.nativeElement.removeAttribute('data-theme');
       }
     });
+    this.#appStore.loadData();
   }
 
 

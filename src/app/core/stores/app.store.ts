@@ -82,7 +82,7 @@ export const AppStore = signalStore(
           }
 
           if (order.transactions && order.transactions.length > 0) {
-            newOrders.push(order);
+            newOrders.push(recalculateTotals(order));
           } else {
             symbolsToRemove.push(order.symbol);
           }
@@ -213,6 +213,28 @@ function parseOrders(
       transactions
     }
   });
+}
+
+function recalculateTotals(order: Order) {
+    let openPriceTotal = 0;
+    let sizeTotal = 0;
+    let swapTotal = 0;
+
+
+    for (let transaction of order.transactions) {
+      sizeTotal += transaction.size;
+      openPriceTotal += transaction.openPrice;
+      swapTotal += transaction.swap;
+    }
+
+    openPriceTotal = openPriceTotal / order.transactions.length;
+
+    return {
+      ...order,
+      openPriceTotal,
+      sizeTotal,
+      swapTotal,
+    };
 }
 
 function parseProfitOfTransactions(

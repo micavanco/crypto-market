@@ -5,12 +5,14 @@ import { AppStore } from '@core/stores/app.store';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '@shared/components/snackbar.component';
 import { Transaction } from '@core/interfaces/transaction.interface';
+import { FormatNumberPipe } from '@shared/pipes/format-number.pipe';
 
 @Component({
   selector: 'app-orders-table',
   imports: [
     DatePipe,
-    ProfitDirective
+    ProfitDirective,
+    FormatNumberPipe
   ],
   templateUrl: './orders-table.html',
   styleUrl: './orders-table.css',
@@ -20,9 +22,10 @@ export class OrdersTable {
   #snackBar = inject(MatSnackBar);
   protected openedOrders = signal({} as Record<string, boolean>);
   protected orders = this.#appStore.orders;
+  protected quotes = this.#appStore.currentQuotes;
 
   constructor() {
-    this.#appStore.loadOrders();
+    this.#appStore.loadData();
   }
 
   protected toggleOrders(symbol: string): void {
@@ -48,4 +51,6 @@ export class OrdersTable {
       duration: 2000,
     });
   }
+
+  protected readonly console = console;
 }

@@ -7,5 +7,5 @@ export interface Transaction {
   id: number;
   side: Side,
   size: number;
-  profit: number;
+  sideMultiplier: 1 | -1;
 }

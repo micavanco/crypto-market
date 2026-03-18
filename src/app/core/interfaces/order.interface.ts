@@ -5,6 +5,6 @@ export interface Order {
   openPriceTotal: number;
   sizeTotal: number;
   swapTotal: number;
-  profitTotal: number;
+  contractSize: number;
   transactions: Transaction[];
 }

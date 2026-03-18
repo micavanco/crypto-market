@@ -51,9 +51,20 @@ export const AppStore = signalStore(
   }),
   withComputed(({ orders, currentQuotes }) => ({
     profitData: () => {
+      return orders().reduce((output, current) => {
+        const { profits, totalProfit } = parseProfitOfTransactions(
+          current.transactions,
+          currentQuotes()[current.symbol],
+          current.contractSize,
+        );
 
+        output[current.symbol] = {
+          totalProfit,
+          profits
+        };
 
-      return
+        return output;
+      }, {} as Record<string, { totalProfit: number; profits: Record<string, number> }>)
     },
   })),
   withMethods((
@@ -202,4 +213,24 @@ function parseOrders(
       transactions
     }
   });
+}
+
+function parseProfitOfTransactions(
+  transactions: Transaction[],
+  priceBid: number,
+  contractSize: number
+): { profits: Record<string, number>; totalProfit: number } {
+  let totalProfit = 0;
+  const profits = transactions.reduce((output, current) => {
+    output[current.id] = (priceBid - current.openPrice) * contractSize * current.size * current.sideMultiplier;
+    totalProfit += output[current.id];
+
+    return output;
+  }, {} as Record<string, number>)
+
+
+  return {
+    profits,
+    totalProfit
+  };
 }

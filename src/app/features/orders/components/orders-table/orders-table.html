@@ -33,7 +33,8 @@
         <td></td>
         <td>{{ order.openPriceTotal | formatNumber: 2 }}</td>
         <td>{{ order.swapTotal | formatNumber: 4 }}</td>
-        <td [appProfit]="123">{{ 123 }}</td>
+        @let totalProfit = profitData()[order.symbol].totalProfit;
+        <td [appProfit]="totalProfit">{{ totalProfit | formatNumber: 5 }}</td>
         <td>
           <span
             class="material-symbols-outlined close-group"
@@ -54,10 +55,9 @@
             <td>{{ transaction.openTime | date: 'dd.MM.yyyy HH:mm:ss' }}</td>
             <td>{{ transaction.openPrice | formatNumber: 2 }}</td>
             <td>{{ transaction.swap | formatNumber: 4 }}</td>
-            @let profit = (quotes()[order.symbol] - transaction.openPrice) *
-              order.contractSize * transaction.size * transaction.sideMultiplier;
+            @let profit = profitData()[order.symbol].profits[transaction.id];
             <td [appProfit]="profit">
-              {{ profit | formatNumber: 2 }}
+              {{ profit | formatNumber: 4 }}
             </td>
             <td>
             <span

@@ -22,7 +22,7 @@ export class OrdersTable {
   #snackBar = inject(MatSnackBar);
   protected openedOrders = signal({} as Record<string, boolean>);
   protected orders = this.#appStore.orders;
-  protected quotes = this.#appStore.currentQuotes;
+  protected profitData = this.#appStore.profitData;
 
   constructor() {
     this.#appStore.loadData();
@@ -51,6 +51,4 @@ export class OrdersTable {
       duration: 2000,
     });
   }
-
-  protected readonly console = console;
 }

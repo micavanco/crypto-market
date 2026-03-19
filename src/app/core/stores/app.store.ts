@@ -130,6 +130,21 @@ export const AppStore = signalStore(
         p: '/subscribe/removelist', d: symbols
       });
     },
+    createNewOrder(symbol: string, transaction: Transaction): void {
+      patchState(store, ({ orders }) => ({
+          orders: orders.reduce((result, current) => {
+            if (current.symbol === symbol) {
+              current.transactions = [transaction, ...current.transactions];
+              current = recalculateTotals(current);
+            }
+
+            result.push(current);
+
+            return result;
+          }, [] as Order[])
+        })
+      );
+    },
     loadData: rxMethod<void>(
       pipe(
         tap(() => patchState(store, { isLoading: true })),

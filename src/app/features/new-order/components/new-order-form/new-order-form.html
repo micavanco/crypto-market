@@ -1,1 +1,34 @@
-<p>new-order-form works!</p>
+<form class="new-order-form">
+  <h1>New order</h1>
+
+  <div class="new-order-form__field">
+    <label for="symbol-select">Symbol</label>
+    <select name="symbol" id="symbol-select">
+      @for (order of orders(); track order.symbol) {
+        <option [value]="order.symbol">{{ order.symbol }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="new-order-form__field">
+    <label for="symbol-select">Side</label>
+    <select name="side" id="side-select">
+      <option [value]="'BUY'">BUY</option>
+      <option [value]="'SELL'">SELL</option>
+    </select>
+  </div>
+
+  <div class="new-order-form__field">
+    <label for="size">Enter size: </label>
+    <input type="text" name="size" id="size" required />
+  </div>
+
+  <div class="new-order-form__field">
+    <h3>Your Profit</h3>
+    <div class="profit">{{ 123 }}</div>
+  </div>
+
+  <div class="button-container">
+    <button>Create</button>
+  </div>
+</form>

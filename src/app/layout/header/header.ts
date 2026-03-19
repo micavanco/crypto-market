@@ -1,9 +1,12 @@
 import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
 import { Theme } from '@core/types/theme.type';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

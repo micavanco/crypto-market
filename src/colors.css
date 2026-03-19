@@ -12,6 +12,8 @@
   --chevron-color: rgb(1, 202, 232);
   --counter-background-color: rgb(193, 193, 193);
   --snackbar-background-color: rgb(67, 90, 128);
+  --input-background-color: rgb(230, 230, 230);
+  --input-border-color: rgb(181, 181, 181);
 }
 
 /* Dark Theme */
@@ -27,4 +29,6 @@
   --chevron-color: rgb(1, 202, 232);
   --counter-background-color: rgb(23, 24, 32);
   --snackbar-background-color: rgb(67, 90, 128);
+  --input-background-color: rgb(61, 84, 109);
+  --input-border-color: rgb(181, 181, 181);
 }

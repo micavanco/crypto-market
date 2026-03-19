@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AppStore } from '@core/stores/app.store';
 
 @Component({
   selector: 'app-new-order-form',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './new-order-form.css',
 })
 export class NewOrderForm {
+  #appStore = inject(AppStore);
+  protected orders = this.#appStore.orders;
 
+  createNewOrder(): void {
+
+  }
 }

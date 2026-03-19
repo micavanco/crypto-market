@@ -12,6 +12,10 @@ header {
   -webkit-box-shadow: 0 9px 19px -8px rgba(66, 68, 90, 1);
   -moz-box-shadow: 0 9px 19px -8px rgba(66, 68, 90, 1);
   box-shadow: 0 9px 19px -8px rgba(66, 68, 90, 1);
+
+  div {
+    cursor: pointer;
+  }
 }
 
 .theme-switcher {

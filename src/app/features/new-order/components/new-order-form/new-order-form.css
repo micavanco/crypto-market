@@ -1,0 +1,37 @@
+.new-order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--text-color);
+}
+
+.new-order-form__field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 15px 0;
+
+  input, select {
+    background: var(--input-background-color);
+    padding: 5px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 3px;
+    outline: none;
+    color: var(--text-color);
+    font-weight: 600;
+  }
+
+  .profit {
+    align-self: center;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+button {
+  align-self: center;
+}

@@ -23,6 +23,7 @@ export class OrdersTable {
   protected openedOrders = signal({} as Record<string, boolean>);
   protected orders = this.#appStore.orders;
   protected profitData = this.#appStore.profitData;
+  protected loading = this.#appStore.isLoading;
 
   protected toggleOrders(symbol: string): void {
     this.openedOrders.update(orders => {

@@ -1,5 +1,8 @@
-<table>
-  <thead>
+@if (loading()) {
+  <div class="loader"></div>
+} @else {
+  <table>
+    <thead>
     <tr>
       <th scope="col"></th>
       <th scope="col" class="table-header__symbol">Symbol</th>
@@ -12,63 +15,64 @@
       <th scope="col" class="table-header__profit">Profit</th>
       <th scope="col" class="table-header__cancel"></th>
     </tr>
-  </thead>
-  <tbody>
-    @for (order of orders(); track order.symbol) {
-      <tr class="table-row__header" (click)="toggleOrders(order.symbol)">
-        <td>
+    </thead>
+    <tbody>
+      @for (order of orders(); track order.symbol) {
+        <tr class="table-row__header" (click)="toggleOrders(order.symbol)">
+          <td>
           <span class="material-symbols-outlined chevron">
             {{ openedOrders()[order.symbol] ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}
           </span>
-        </td>
-        <td class="transaction-symbol-container">
-          <div class="transaction-symbol">{{ order.symbol }}</div>
-          <div class="transaction-counter-box">
-            <span class="transaction-counter">{{ order.transactions.length }}</span>
-          </div>
-        </td>
-        <td></td>
-        <td></td>
-        <td>{{ order.sizeTotal | formatNumber: 2 }}</td>
-        <td></td>
-        <td>{{ order.openPriceTotal | formatNumber: 2 }}</td>
-        <td>{{ order.swapTotal | formatNumber: 4 }}</td>
-        <td [appProfit]="profitData()[order.symbol].totalProfit">{{ profitData()[order.symbol].totalProfit | formatNumber: 5 }}</td>
-        <td>
+          </td>
+          <td class="transaction-symbol-container">
+            <div class="transaction-symbol">{{ order.symbol }}</div>
+            <div class="transaction-counter-box">
+              <span class="transaction-counter">{{ order.transactions.length }}</span>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td>{{ order.sizeTotal | formatNumber: 2 }}</td>
+          <td></td>
+          <td>{{ order.openPriceTotal | formatNumber: 2 }}</td>
+          <td>{{ order.swapTotal | formatNumber: 4 }}</td>
+          <td [appProfit]="profitData()[order.symbol].totalProfit">{{ profitData()[order.symbol].totalProfit | formatNumber: 5 }}</td>
+          <td>
           <span
             class="material-symbols-outlined close-group"
             (click)="closeTransactionGroup(order.symbol, order.transactions)"
           >
             contract_delete
           </span>
-        </td>
-      </tr>
-      @if (openedOrders()[order.symbol]) {
-        @for (transaction of order.transactions; track transaction.id) {
-          <tr>
-            <td></td>
-            <td></td>
-            <td>{{ transaction.id }}</td>
-            <td>{{ transaction.side }}</td>
-            <td>{{ transaction.size }}</td>
-            <td>{{ transaction.openTime | date: 'dd.MM.yyyy HH:mm:ss' }}</td>
-            <td>{{ transaction.openPrice | formatNumber: 2 }}</td>
-            <td>{{ transaction.swap | formatNumber: 4 }}</td>
-            @let profit = profitData()[order.symbol].profits[transaction.id];
-            <td [appProfit]="profit">
-              {{ profit | formatNumber: 4 }}
-            </td>
-            <td>
+          </td>
+        </tr>
+        @if (openedOrders()[order.symbol]) {
+          @for (transaction of order.transactions; track transaction.id) {
+            <tr>
+              <td></td>
+              <td></td>
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.side }}</td>
+              <td>{{ transaction.size }}</td>
+              <td>{{ transaction.openTime | date: 'dd.MM.yyyy HH:mm:ss' }}</td>
+              <td>{{ transaction.openPrice | formatNumber: 2 }}</td>
+              <td>{{ transaction.swap | formatNumber: 4 }}</td>
+              @let profit = profitData()[order.symbol].profits[transaction.id];
+              <td [appProfit]="profit">
+                {{ profit | formatNumber: 4 }}
+              </td>
+              <td>
             <span
               class="material-symbols-outlined close-transaction"
               (click)="closeTransaction(order.symbol, transaction.id)"
             >
               close
             </span>
-            </td>
-          </tr>
+              </td>
+            </tr>
+          }
         }
       }
-    }
-  </tbody>
-</table>
+    </tbody>
+  </table>
+}

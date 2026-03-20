@@ -203,8 +203,9 @@ function parseOrders(
     const transactions: Transaction[] = [];
 
     for (let response of groupedBySymbol[key]!) {
-      sizeTotal += response.size;
-      openPriceTotal += response.openPrice;
+      const sideMultiplier = response.side === 'BUY' ? 1 : -1;
+      sizeTotal += (response.size * sideMultiplier);
+      openPriceTotal += (response.openPrice  * sideMultiplier);
       swapTotal += response.swap;
       transactions.push(({
         openTime: response.openTime,

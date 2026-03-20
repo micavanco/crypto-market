@@ -1,9 +1,9 @@
-<form class="new-order-form">
+<form class="new-order-form" [formGroup]="newOrderForm">
   <h1>New order</h1>
 
   <div class="new-order-form__field">
     <label for="symbol-select">Symbol</label>
-    <select name="symbol" id="symbol-select">
+    <select name="symbol" id="symbol-select" formControlName="symbol">
       @for (order of orders(); track order.symbol) {
         <option [value]="order.symbol">{{ order.symbol }}</option>
       }
@@ -12,7 +12,7 @@
 
   <div class="new-order-form__field">
     <label for="symbol-select">Side</label>
-    <select name="side" id="side-select">
+    <select name="side" id="side-select" formControlName="side">
       <option [value]="'BUY'">BUY</option>
       <option [value]="'SELL'">SELL</option>
     </select>
@@ -20,15 +20,46 @@
 
   <div class="new-order-form__field">
     <label for="size">Enter size: </label>
-    <input type="text" name="size" id="size" required />
+    <input type="text" name="size" id="size" required  formControlName="size" />
+    @if (size.invalid && (size.dirty || size.touched)) {
+      <div class="alert">
+        @if (size.hasError('required')) {
+          <div>Size is required.</div>
+        }
+        @if (size.hasError('notNumber')) {
+          <div>Size must be a number.</div>
+        }
+        @if (size.hasError('shouldBeHigherThan')) {
+          <div>Value should be higher than {{ size.errors!['shouldBeHigherThan'].value }}</div>
+        }
+      </div>
+    }
   </div>
 
   <div class="new-order-form__field">
-    <h3>Your Profit</h3>
-    <div class="profit">{{ 123 }}</div>
+    <label for="openPrice">Enter open price: </label>
+    <input type="text" name="openPrice" id="openPrice" required  formControlName="openPrice" />
+    @if (openPrice.invalid && (openPrice.dirty || openPrice.touched)) {
+      <div class="alert">
+        @if (openPrice.hasError('required')) {
+          <div>Open price is required.</div>
+        }
+        @if (openPrice.hasError('notNumber')) {
+          <div>Open price must be a number.</div>
+        }
+        @if (openPrice.hasError('shouldBeHigherThan')) {
+          <div>Value should be higher than {{ openPrice.errors!['shouldBeHigherThan'].value }}</div>
+        }
+      </div>
+    }
   </div>
 
   <div class="button-container">
-    <button>Create</button>
+    <button
+      [disabled]="newOrderForm.invalid"
+      (click)="createNewOrder()"
+    >
+      Create New Order
+    </button>
   </div>
 </form>

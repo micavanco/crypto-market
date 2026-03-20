@@ -3,6 +3,7 @@
 :root {
   --main-backgroud-color: rgb(233, 237, 241);
   --text-color: rgb(14, 15, 26);
+  --text-alert-color: rgb(255, 0, 0);
   --text-header-color: rgb(31, 34, 58);
   --row-background-color: rgb(220, 225, 229);
   --row-background-color--hover: rgb(201, 209, 216);
@@ -14,12 +15,16 @@
   --snackbar-background-color: rgb(67, 90, 128);
   --input-background-color: rgb(230, 230, 230);
   --input-border-color: rgb(181, 181, 181);
+  --button-color: rgb(181, 181, 181);
+  --button-color--hover: rgb(200, 200, 200);
+  --button-color--disabled: rgb(172, 172, 172);
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
   --main-backgroud-color: rgb(42, 56, 71);
   --text-color: rgb(198, 210, 219);
+  --text-alert-color: rgb(255, 0, 0);
   --text-header-color: rgb(225, 225, 225);
   --row-background-color: rgba(14, 15, 26, .25);
   --row-background-color--hover: rgba(53, 71, 89, .5);
@@ -31,4 +36,7 @@
   --snackbar-background-color: rgb(67, 90, 128);
   --input-background-color: rgb(61, 84, 109);
   --input-border-color: rgb(181, 181, 181);
+  --button-color: rgb(59, 106, 157);
+  --button-color--hover: rgb(71, 127, 188);
+  --button-color--disabled: rgb(172, 172, 172);
 }

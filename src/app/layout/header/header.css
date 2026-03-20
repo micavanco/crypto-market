@@ -13,8 +13,34 @@ header {
   -moz-box-shadow: 0 9px 19px -8px rgba(66, 68, 90, 1);
   box-shadow: 0 9px 19px -8px rgba(66, 68, 90, 1);
 
-  div {
+  .logo {
     cursor: pointer;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button {
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: var(--button-color);
+    margin-right: 20px;
+    -webkit-box-shadow: 0 17px 24px -22px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0 17px 24px -22px rgba(66, 68, 90, 1);
+    box-shadow: 0 17px 24px -22px rgba(66, 68, 90, 1);
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: 0.2s ease-in-out background-color;
+  }
+
+  button:hover {
+    background: var(--button-color--hover);
   }
 }
 

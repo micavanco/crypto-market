@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
+  height: calc(100vh - 112px);
   justify-content: flex-start;
   align-items: center;
-  padding: 70px 0;
+  padding-top: 70px;
   background: var(--main-backgroud-color);
 }

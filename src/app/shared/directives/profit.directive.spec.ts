@@ -1,8 +1,8 @@
-import { Profit } from './profit';
+import { ProfitDirective } from './profit.directive';
 
-describe('Profit', () => {
+describe('ProfitDirective', () => {
   it('should create an instance', () => {
-    const directive = new Profit();
+    const directive = new ProfitDirective();
     expect(directive).toBeTruthy();
   });
 });

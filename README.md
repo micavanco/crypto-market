@@ -2,6 +2,20 @@
 
 It's a cryptocurrency market simulation. A recruiting task to show programming skills.
 
+## Deploy
+You can test deployed application here:
+https://micavanco.github.io/crypto-market/
+
+## Screenshots
+### Main Cryptocurrencies Dashboard - Dark Mode
+![alt text](https://raw.githubusercontent.com/micavanco/crypto-market/main/screenshots/main.png)
+
+### Main Cryptocurrencies Dashboard - Light Mode
+![alt text](https://raw.githubusercontent.com/micavanco/crypto-market/main/screenshots/main2.png)
+
+### New Order Page
+![alt text](https://raw.githubusercontent.com/micavanco/crypto-market/main/screenshots/new-order.png)
+
 ## Development server
 
 To start a local development server, run:

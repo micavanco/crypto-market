@@ -29,7 +29,7 @@ export class OrdersTable {
       orders[symbol] = !orders[symbol];
 
       return { ...orders };
-    })
+    });
   }
 
   protected closeTransaction(symbol: string, transactionId: number): void {
